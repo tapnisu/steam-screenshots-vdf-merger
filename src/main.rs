@@ -44,8 +44,24 @@ fn main() {
         .input
         .into_iter()
         .filter_map(|path| fs::read_to_string(path).ok())
-        .map(|file| better_vdf::from_str(&file).unwrap())
+        .filter_map(|file| better_vdf::from_str(&file).ok())
         .collect();
 
-    println!("{:#?}", screenshots_vdfs);
+    let mut output_vdf = ScreenshotsVDF {
+        screenshots: HashMap::new(),
+    };
+
+    for vdf in screenshots_vdfs {
+        for (game_id, game) in vdf.screenshots {
+            output_vdf
+                .screenshots
+                .entry(game_id)
+                .or_insert(Game(Vec::new()))
+                .0
+                .extend(game.0);
+        }
+    }
+
+    let output = better_vdf::to_string(&output_vdf).unwrap();
+    fs::write(cli.output, output).unwrap();
 }

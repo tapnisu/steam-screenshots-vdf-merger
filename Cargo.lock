@@ -55,7 +55,7 @@ dependencies = [
 [[package]]
 name = "better-vdf"
 version = "0.1.0"
-source = "git+https://github.com/tapnisu/better-vdf?branch=feat%2Fallow-key-absence#72bd92af53b9ccc4432e3c076df8cc9a103b8816"
+source = "git+https://github.com/tapnisu/better-vdf?branch=feat%2Fallow-key-absence#bc3af5536aa69ccaee5d85a9eb1bf00abebce187"
 dependencies = [
  "serde",
 ]

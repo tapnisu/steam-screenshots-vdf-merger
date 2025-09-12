@@ -6,4 +6,7 @@ pub struct Cli {
     /// Input files to join
     #[clap(short, long, num_args = 1.., required=true)]
     pub input: Vec<String>,
+    /// Output location
+    #[clap(short, long, required=true)]
+    pub output: String,
 }
