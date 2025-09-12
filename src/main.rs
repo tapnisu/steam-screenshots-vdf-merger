@@ -1,7 +1,7 @@
 use clap::Parser;
 use serde::{Deserialize, Serialize};
 use std::{collections::HashMap, fs};
-use steam_screenshots_vdf_joiner::Cli;
+use steam_screenshots_vdf_merger::Cli;
 
 #[derive(Serialize, Deserialize, Debug)]
 struct ScreenshotsVDF {

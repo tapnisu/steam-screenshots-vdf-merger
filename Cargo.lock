@@ -163,7 +163,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "steam-screenshots-vdf-joiner"
+name = "steam-screenshots-vdf-merger"
 version = "0.1.0"
 dependencies = [
  "better-vdf",

@@ -1,7 +1,17 @@
 [package]
-name = "steam-screenshots-vdf-joiner"
+name = "steam-screenshots-vdf-merger"
 version = "0.1.0"
 edition = "2024"
+readme = "README.md"
+authors = ["Aleksei Rybin <aleksei@tapni.su>"]
+description = "CLI tool for merging multiple steam's screenshots.vdf files"
+license = "MIT"
+
+repository = "https://github.com/tapnisu/steam-screenshots-vdf-merger"
+homepage = "https://github.com/tapnisu/steam-screenshots-vdf-merger"
+categories = ["command-line-utilities"]
+exclude = [".github/*"]
+
 
 [dependencies]
 better-vdf = { version = "0.1.0", git = "https://github.com/tapnisu/better-vdf", branch = "feat/allow-key-absence" }
