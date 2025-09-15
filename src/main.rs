@@ -1,6 +1,6 @@
 use clap::Parser;
 use serde::{Deserialize, Serialize};
-use std::{collections::HashMap, fs};
+use std::{collections::HashMap, error::Error, fs};
 use steam_screenshots_vdf_merger::Cli;
 
 #[derive(Serialize, Deserialize, Debug)]
@@ -37,7 +37,7 @@ struct Screenshot {
 #[derive(Serialize, Deserialize, Debug)]
 struct TaggedPublishedFiles(HashMap<String, String>);
 
-fn main() {
+fn main() -> Result<(), Box<dyn Error>> {
     let cli = Cli::parse();
 
     let screenshots_vdfs: Vec<ScreenshotsVDF> = cli
@@ -62,6 +62,8 @@ fn main() {
         }
     }
 
-    let output = better_vdf::to_string(&output_vdf).unwrap();
-    fs::write(cli.output, output).unwrap();
+    let output = better_vdf::to_string(&output_vdf)?;
+    fs::write(cli.output, output)?;
+
+    Ok(())
 }
